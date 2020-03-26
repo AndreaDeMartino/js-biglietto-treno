@@ -11,19 +11,21 @@ var seniorDiscount = 0.40;
 
 // Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio.
 
+var ticketDiscount;
 var totalDiscount;
 var finalPrice;
+var standardPrice;
 
 if(userAge < 18){
   console.log('Sconto applicato per Minorenne');
-  ticketPrice = ticketPrice * juniorDiscount;
-  finalPrice = ticketPrice * userDistance;
+  ticketDiscount = ticketPrice - (ticketPrice * juniorDiscount);
+  finalPrice = ticketDiscount * userDistance;
 }
 
 else if(userAge > 65){
   console.log('Sconto applicato per gli Over 65');
-  ticketPrice = ticketPrice * seniorDiscount;
-  finalPrice = ticketPrice * userDistance;
+  ticketDiscount = ticketPrice - (ticketPrice * juniorDiscount);
+  finalPrice = ticketDiscount * userDistance;
 }
 
 else{
@@ -31,7 +33,19 @@ else{
   finalPrice = ticketPrice * userDistance;
 }
 
-console.log('Il prezzo finale è di ' + finalPrice + '€');
+// Prezzo scontato
+console.log('Il prezzo scontato è di ' + finalPrice + '€')
 
+// Prezzo standard
+standardPrice = ticketPrice * userDistance;
+console.log('Il prezzo standard è di ' + standardPrice + '€');
+
+// Totale Sconto
+totalDiscount = finalPrice - standardPrice;
+console.log('Il totale dello sconto applicato è' + totalDiscount + '€');
 
 // Mostrare a schermo il prezzo del biglietto, indicando anche se è stato applicato un eventuale sconto.
+
+document.getElementById('ticket-price').innerHTML = finalPrice;
+document.getElementById('ticket-standard-price').innerHTML = standardPrice;
+document.getElementById('ticket-discount').innerHTML = totalDiscount;
