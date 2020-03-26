@@ -19,29 +19,29 @@ var standardPrice;
 if(userAge < 18){
   console.log('Sconto applicato per Minorenne');
   ticketDiscount = ticketPrice - (ticketPrice * juniorDiscount);
-  finalPrice = ticketDiscount * userDistance;
+  finalPrice = (ticketDiscount * userDistance).toFixed(2);
 }
 
 else if(userAge > 65){
   console.log('Sconto applicato per gli Over 65');
-  ticketDiscount = ticketPrice - (ticketPrice * juniorDiscount);
-  finalPrice = ticketDiscount * userDistance;
+  ticketDiscount = ticketPrice - (ticketPrice * seniorDiscount);
+  finalPrice = (ticketDiscount * userDistance).toFixed(2);
 }
 
 else{
   console.log('Attenzione nessuno sconto applicato');
-  finalPrice = ticketPrice * userDistance;
+  finalPrice = (ticketPrice * userDistance).toFixed(2);
 }
 
 // Prezzo scontato
 console.log('Il prezzo scontato è di ' + finalPrice + '€')
 
 // Prezzo standard
-standardPrice = ticketPrice * userDistance;
+standardPrice = (ticketPrice * userDistance).toFixed(2);
 console.log('Il prezzo standard è di ' + standardPrice + '€');
 
 // Totale Sconto
-totalDiscount = finalPrice - standardPrice;
+totalDiscount = (finalPrice - standardPrice).toFixed(2);
 console.log('Il totale dello sconto applicato è' + totalDiscount + '€');
 
 // Mostrare a schermo il prezzo del biglietto, indicando anche se è stato applicato un eventuale sconto.
