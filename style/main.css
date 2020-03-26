@@ -1,7 +1,5 @@
 body{
-  background: url('../img/train.jpg');
-  background-size: cover;
-  background-position: center;
+  background: #a0d0ec;
 }
 
 
@@ -12,8 +10,4 @@ body{
 
 .card{
   filter: grayscale(1);
-}
-
-.card:hover{
-  filter: none;
 }
