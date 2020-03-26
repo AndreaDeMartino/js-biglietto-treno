@@ -27,6 +27,7 @@ else if(userAge > 65){
   console.log('Sconto applicato per gli Over 65');
   ticketDiscount = ticketPrice - (ticketPrice * seniorDiscount);
   finalPrice = (ticketDiscount * userDistance).toFixed(2);
+  document.getElementsByClassName('grayscale--discount')[0].setAttribute("style","filter:grayscale(0)");
 }
 
 else{
